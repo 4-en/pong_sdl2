@@ -73,7 +73,6 @@ namespace Pong.src
             }
         }
     }
-
     class FilledSquare : Drawable
     {
 
