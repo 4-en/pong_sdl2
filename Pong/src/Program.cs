@@ -8,7 +8,8 @@ namespace Pong
         static void Main(string[] args)
         {
             // example of how to use the engine
-            Example.Run();
+            PongGame.Run();
+            //Example.Run();
         }
     }
 }
