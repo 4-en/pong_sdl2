@@ -24,6 +24,7 @@ namespace Pong.src
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
             // Define the inner rectangle (empty area)
+            /* old version
             var InnerRect = new SDL_Rect();
             InnerRect.x = (int)(root.transform.position.x - PaddleWidth / 2); // Adjust the position to make the inner rectangle smaller
             InnerRect.y = (int)(root.transform.position.y - PaddleHeight / 2); // Adjust the position to make the inner rectangle smaller
@@ -35,6 +36,23 @@ namespace Pong.src
 
             InnerRect.x = (int)(innerRectCenter.x - PaddleWidth / 2);
             InnerRect.y = (int)(innerRectCenter.y - PaddleHeight / 2);
+
+            */
+
+            // Define the inner rectangle (empty area) with root as center
+            Vec2D topLeft = new Vec2D(-PaddleWidth / 2, -PaddleHeight / 2) + root.transform.position;
+            Vec2D bottomRight = new Vec2D(PaddleWidth / 2, PaddleHeight / 2) + root.transform.position;
+
+            // transform to camera space
+            topLeft = camera.WorldToScreen(topLeft);
+            bottomRight = camera.WorldToScreen(bottomRight);
+
+            // create SDL_Rect
+            var InnerRect = new SDL_Rect();
+            InnerRect.x = (int)topLeft.x;
+            InnerRect.y = (int)topLeft.y;
+            InnerRect.w = (int)(bottomRight.x - topLeft.x);
+            InnerRect.h = (int)(bottomRight.y - topLeft.y);
 
             // Draw the inner rectangle (empty area)
             SDL_RenderDrawRect(renderer, ref InnerRect);

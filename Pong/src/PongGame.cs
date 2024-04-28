@@ -46,7 +46,7 @@ namespace Pong.src
             //Boarder variante 2
             var testBoarder = scene.CreateChild("Boarder");
             _ = testBoarder.AddComponent<Boarder2>();
-            testBoarder.transform.position = new Vec2D(950, 750);
+            testBoarder.transform.position = new Vec2D(scene.GetCamera().GetWorldSize().x / 2, scene.GetCamera().GetWorldSize().y / 2);
 
 
             return scene;
