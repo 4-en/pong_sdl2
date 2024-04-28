@@ -1,5 +1,4 @@
-﻿using SDL2;
-using SDL2Engine;
+﻿using SDL2Engine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +8,17 @@ using static SDL2.SDL;
 
 namespace Pong.src
 {
-    class Paddle : Drawable
+    class Boarder() : Drawable
     {
+        public float Left { get; private set; }
+        public float Right { get; private set; }
+        public float Top { get; private set; }
+        public float Bottom { get; private set; }
 
         public override void Draw(Camera camera)
         {
-            var PaddleWidth = 35;
-            var PaddleHeight = 150;
+            var PaddleWidth = 15;
+            var PaddleHeight = 1880;
             var PaddleSpeed = 10;
 
             var renderer = Engine.renderer;
