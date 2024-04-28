@@ -53,6 +53,9 @@ namespace Pong.src
             _ = testBoarder.AddComponent<Boarder2>();
             testBoarder.transform.position = new Vec2D(960, 750);
 
+            //testBoarder.transform.position = new Vec2D(scene.GetCamera().GetWorldSize().x / 2, scene.GetCamera().GetWorldSize().y / 2);
+
+
 
             return scene;
         }
