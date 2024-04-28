@@ -15,7 +15,7 @@ namespace Pong.src
         public override void Draw(Camera camera)
         {
             var PaddleWidth = 35;
-            var PaddleHeight = 150;
+            var PaddleHeight = 160;
             var PaddleSpeed = 10;
 
             var renderer = Engine.renderer;

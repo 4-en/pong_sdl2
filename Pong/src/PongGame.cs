@@ -27,12 +27,17 @@ namespace Pong.src
             _ = rightPaddle.AddComponent<Paddle>();
             rightPaddle.transform.position = new Vec2D(1870, 750);
 
+            ////PongBall variante round
+            //var pongBall = scene.CreateChild("Pongball");
+            ////_ = pongBall.AddComponent<ArrowKeysController>();
+            //_ = pongBall.AddComponent<PongBall>();
+            //pongBall.transform.position = new Vec2D(950, 750);
 
-            var pongBall = scene.CreateChild("Pongball");
+            ////PongBall variante round
+            var pongSquare = scene.CreateChild("Pongball");
             //_ = pongBall.AddComponent<ArrowKeysController>();
-            _ = pongBall.AddComponent<PongBall>();
-            pongBall.transform.position = new Vec2D(950, 750);
-
+            _ = pongSquare.AddComponent<PongSquare>();
+            pongSquare.transform.position = new Vec2D(960, 750);
 
             ////Boarder variante 1 
             //var leftBoarder = scene.CreateChild("Boarder");
@@ -46,7 +51,7 @@ namespace Pong.src
             //Boarder variante 2
             var testBoarder = scene.CreateChild("Boarder");
             _ = testBoarder.AddComponent<Boarder2>();
-            testBoarder.transform.position = new Vec2D(950, 750);
+            testBoarder.transform.position = new Vec2D(960, 750);
 
 
             return scene;
