@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SDL2.SDL;
+using static SDL2.SDL_ttf;
 
 namespace Pong.src
 {
@@ -55,7 +56,11 @@ namespace Pong.src
 
             //testBoarder.transform.position = new Vec2D(scene.GetCamera().GetWorldSize().x / 2, scene.GetCamera().GetWorldSize().y / 2);
 
-
+            // Text erstellen und rendern
+            var helloText = scene.CreateChild("Hello Text");
+            _ = testBoarder.AddComponent<Text>();
+            helloText.transform.position = new Vec2D(960, 300);
+            // RenderText("Hello!", helloText.transform.position, Engine.renderer, scene.GetCamera());
 
             return scene;
         }
@@ -68,6 +73,40 @@ namespace Pong.src
 
             engine.Run();
         }
+
+        // Methode zum Rendern des Textes
+        //private static void RenderText(string text, Vec2D worldPosition, nint renderer, Camera camera)
+        //{
+
+        //    Console.WriteLine(camera);
+        //    nint sans = TTF_OpenFont("Sans.ttf", 24);
+
+        //    SDL_Color white = new();
+        //    white.r = white.g = white.b = white.a = 255;
+
+        //    nint surfaceMessage = TTF_RenderText_Solid(sans, text, white);
+
+        //    // now you can convert it into a texture
+        //    nint message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+        //    SDL_Rect message_rect;
+        //    message_rect.w = message_rect.h = 0;
+
+        //    // Convert world position to screen position using camera
+        //    Vec2D screenPosition = camera.WorldToScreen(worldPosition);
+        //    message_rect.x = (int)screenPosition.x;
+        //    message_rect.y = (int)screenPosition.y;
+
+        //    // Get the size of the text
+        //    SDL_QueryTexture(message, out _, out _, out message_rect.w, out message_rect.h);
+
+        //    SDL_RenderCopy(renderer, message, (nint)null, ref message_rect);
+
+        //    SDL_FreeSurface(surfaceMessage);
+        //    SDL_DestroyTexture(message);
+        //    TTF_CloseFont(sans);
+        //}
+
     }
 }
 

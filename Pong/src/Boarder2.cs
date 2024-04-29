@@ -13,8 +13,8 @@ namespace Pong.src
 
         public override void Draw(Camera camera)
         {
-            var PaddleWidth = 1905;
-            var PaddleHeight = 1075;
+            var BoarderWidth = 1905;
+            var BoarderHeight = 1075;
             var BorderThickness = 5;
             var renderer = Engine.renderer;
 
@@ -26,22 +26,22 @@ namespace Pong.src
             // Define the inner rectangle (empty area)
             /* old version
             var InnerRect = new SDL_Rect();
-            InnerRect.x = (int)(root.transform.position.x - PaddleWidth / 2); // Adjust the position to make the inner rectangle smaller
-            InnerRect.y = (int)(root.transform.position.y - PaddleHeight / 2); // Adjust the position to make the inner rectangle smaller
-            InnerRect.w = (int)PaddleWidth; // Adjust the width to make the inner rectangle smaller
-            InnerRect.h = (int)PaddleHeight; // Adjust the height to make the inner rectangle smaller
+            InnerRect.x = (int)(root.transform.position.x - BoarderWidth / 2); // Adjust the position to make the inner rectangle smaller
+            InnerRect.y = (int)(root.transform.position.y - BoarderHeight / 2); // Adjust the position to make the inner rectangle smaller
+            InnerRect.w = (int)BoarderWidth; // Adjust the width to make the inner rectangle smaller
+            InnerRect.h = (int)BoarderHeight; // Adjust the height to make the inner rectangle smaller
 
             // Convert to camera space
             Vec2D innerRectCenter = camera.WorldToScreen(root.transform.position);
 
-            InnerRect.x = (int)(innerRectCenter.x - PaddleWidth / 2);
-            InnerRect.y = (int)(innerRectCenter.y - PaddleHeight / 2);
+            InnerRect.x = (int)(innerRectCenter.x - BoarderWidth / 2);
+            InnerRect.y = (int)(innerRectCenter.y - BoarderHeight / 2);
 
             */
 
             // Define the inner rectangle (empty area) with root as center
-            Vec2D topLeft = new Vec2D(-PaddleWidth / 2, -PaddleHeight / 2) + root.transform.position;
-            Vec2D bottomRight = new Vec2D(PaddleWidth / 2, PaddleHeight / 2) + root.transform.position;
+            Vec2D topLeft = new Vec2D(-BoarderWidth / 2, -BoarderHeight / 2) + root.transform.position;
+            Vec2D bottomRight = new Vec2D(BoarderWidth / 2, BoarderHeight / 2) + root.transform.position;
 
             // transform to camera space
             topLeft = camera.WorldToScreen(topLeft);
