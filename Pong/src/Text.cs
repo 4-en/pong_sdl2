@@ -15,6 +15,7 @@ namespace Pong.src
     {
         public override void Draw(Camera camera)
         {
+            //Console.WriteLine("TEXT");
             var renderer = Engine.renderer;
 
             nint Sans = SDL_ttf.TTF_OpenFont("Sans.ttf", 24);
@@ -39,5 +40,5 @@ namespace Pong.src
             SDL_DestroyTexture(Message);
         }
     }
-    s
+
 }
